@@ -1,99 +1,35 @@
 # week08
 
-## 오늘 한 일
+## 팀 전체 진행상황
 
-    AVD 통일 - Pixel 2, 파일 이름 정리: main에서 연결하기 위함
+    중간고사 기간이어서 대부분의 팀원이 많은 진행을 하지 못함. 원래 있던 기능에서 기능을 추가하거나, 오류를 해결함.
 
 ### Feedback
 
     박승준 - (학교/두정역/터미널)의 버스 정보 담당
-              도착정보 API 연동 성공함. 그러나 버스 정보, 노선 정보, 정류장 정보까지 모두 다 하기엔 무리일 것 같아 
-              각 위치의 도착 정보를 불러오는 것을 우선으로 하여 개발을 이어가기로 함. 
+              데이터 API를 연동하여 정류소명 입력시 정류장 관련 id, 버스 번호 입력시 버스 id 가져오는 기능을 추가함.
+              정류소ID와 노선번호를 기준으로하여 실시간 도착정보인 남은 도착시간, 남은 정류장 수를 알 수 있도록 하는 코드 작성하고 있음.
     
-    김다혜 - 셔틀 버스 정보 담당
-             지난 시간 한 각 출발지에서의 셔틀 버스 정보를 보여주는 것에 이어 그 시간표에 맞게 실시간으로 몇분이 남았는지를 보여주는 것을 개발함.
-             UI를 더 꾸미고 조금 더 보완 후에 택시 부분 개발을 이어가기로 함.
+    김다혜 - 셔틀 버스 정보 및 택시 모집 게시글 담당
+             택시 출발 장소를 Google API 지도를 통해서 설정하려고 했으나, 연동이 잘 되지 않아서 카카오맵 API를 이용하기로 함.
+             택시 모집 게시글 board 레이아웃과 모집 게시글 작성 레이아웃을 설계함.
     
     마혜준 - 회원가입/ 로그인 담당
-             지난 주에 AVD 오류로 보여주지 못한 부분을 해결하여 보여줌.
-             Firebase 연동으로 User 정보를 관리하는 부분에 대해 개발을 이어가기로 함.
+             Register 레이아웃의 위젯이 많아 한 레이아웃에 담지 못하는 오류가 있었음.
+             ScrollView에 RelativeLayout을 추가하여 다양한 위젯을 한 레이아웃에 담을 수 있도록 설계함.
+             다음주까지 문자메시지 발송하여 인증번호를 받는 과정을 구현할 예정임.
     
     박윤빈 - 시간표 담당
-             시간표와 강의 목록 버튼을 생성하여 강의 목록에서 자신이 추가할 강의를 찾아 볼 수 있으며 그 강의를 추가하면 시간표에서 자신이 짠 시간표를 확인할 수 있음.
-             시간표 부분 layout의 보완이 필요하며 이것을 보완한 후 더 효율적으로 활용할 수 있도록 연구하여 개발을 이어가기로 함.
+             Fragment를 사용하여 레이아웃을 설계하였는데, 이 과정에서 버튼을 누르면 다른 레이아웃으로 이동하는 부분이 오류가 남.
+             그 이유는 Fragment 안에 Onclick 함수를 정의할 수 없기 때문인데 OnClick 함수를 Override해서 정의하여 오류를 해결함.
     
     심우정 - 게시판/ 댓글 담당
-             지난 시간에 해오기로 한 firebase 연동을 성공하였으며 게시물을 작성하였을 때 firebase에서 실시간으로 DB가 업데이트 되는 것을 확인 할 수 있음. 
-             연동한 것을 토대로 작성한 게시물의 DB를 불러와서 목록에 대해 개발을 이어가기로 함.
+             게시글을 쓰면 fireBase를 통해 실시간으로 DB를 저장하고 불러오는 기능을 추가함.
+             게시글 board 목록이 역순으로 올라오도록 함. (가장 최근의 것이 제일 위쪽에 올라오도록 함.)
+             다음주까지 게시글 업로드한 시간도 함께 뜨도록 기능을 추가할 예정.
     
     양하은 - 메인화면/ 채팅/ 졸업학점 담당
-             firebase 연동을 성공하여 User의 id/학번/이름을 저장하고 불러와 recyclerView를 만들어옴.
-             저장된 user 정보를 이용하여 채팅을 하는 부분에 대해 개발을 이어가기로 함.
-             오늘 팀원들의 xml, java 파일 명을 정리하여 메인화면에서 각자 화면으로 넘어갈 수 있도록 해오기로 함.
-             
-### 파일 이름 정리
+             메인화면에 navigation menu 기능을 추가하여 앱 내의 기능 list가 뜨도록 애니메이션을 구현함.
+             메인화면에 학교 홈페이지로 이동하는 아이콘을 추가하여 해당하는 URL로 이동하는 기능을 추가할 예정임.
+            
 
-**박승준**
-
-    -JAVA
-    smc_bus_informationActivity.java // 버스정보조회 기능
-    -Layout
-    activity_main.xml // 버스정보조회 레이아웃
-
-**김다혜**
-
-    - JAVA
-    SuttleBusActivity.class //셔틀버스 관련 기능
-    - Layout.xml
-    activity_main//셔틀버스 레이아웃
-
-**마혜준**
-
-    -JAVA
-    LoginActivity.class //로그인 클래스 + 파이어베이스 DB연동(가져오기)
-    RegisterActivity.class //회원가입 클래스 + 파이어베이스 DB연동(보내기)
-
-    - Layout.xml
-    login.xml //로그인 레이아웃
-    register.xml //회원가입 레이아웃
-    add_friends //친구추가 레이아웃
-    
-**박윤빈**
-
-    -JAVA
-    MainActivity.class
-    CourseFragment.class // 강의 목록 DB
-    ScheduleFragment.class // 시간표 클래스
-
-    - Layout.xml
-    activity_main.xml // 강의 목록, 시간표 버튼 누르면 넘어가는 화면
-    fragment_course.xml // 강의 선택 화면 레이아웃
-    fragment_schedule.xml // 시간표 테이블 레이아웃
-
-**심우정**
-
-    -JAVA
-    BoardInfo.class
-    BoardActivity.class // 글 목록 클래스 + 파이어베이스 DB연동 (가져오기)
-    MyAdapter.class // 리사이클러뷰 뷰홀더 어댑터
-    WriteActivity_b.class // 글 작성 클래스 + 파이어베이스 DB연동 (보내기)
-    WriteActivity_c.class // 댓글 파이어베이스 DB 연동 (보내기+받아오기)
-
-    - Layout.xml
-    activity_main.xml // 글목록(리사이클러뷰 이용) 레이아웃
-    activity_write.xml // 글작성 레이아웃
-    item.xml // 글목록 리사이클러뷰에 넣을 카드뷰 레이아웃
-    activity_comment.xml // 댓글 작성+목록 레이아웃
-    
-**양하은**
-   
-    - JAVA
-    CustomAdapter.class // recyclerView holer
-    MainActivity.class // 파이어베이스 DB 연동
-    User.class // 유저 정보 
-    
-    - Layout.xml
-    activity_main.xml // list 레이아웃 (채팅)
-    list_item.xml // recyclerView 레이아웃
-    activity_drawer.xml // 메인화면 drawer 레이아웃
-    activity_main.xml // 메인 화면 구성 (메인)
